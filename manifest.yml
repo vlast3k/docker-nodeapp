@@ -1,8 +1,7 @@
 ---
 applications:
-  - name: nodeappfordocker
+  - name: docker
+    disk-quota: 3G
     docker:
-      image: <repo>/<appname>:<tag>
-      username: <username>
-    services:
-      - my-xsuaa
+      image: vlast3k/docker-nodeapp
+      username: vlast3k
