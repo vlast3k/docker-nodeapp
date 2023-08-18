@@ -1,4 +1,20 @@
 const http = require('http');
+const fs = require('fs');
+const path = require('path');
+
+function createFiles(baseDir = '.', fileCount = 500000, fileSize = 1024) {
+    const buffer = Buffer.alloc(fileSize, 'A');  // Fills the file with character 'A'
+
+    for (let i = 0; i < fileCount; i++) {
+        const filePath = path.join(baseDir, `file_${i}.txt`);
+        fs.writeFileSync(filePath, buffer);
+    }
+
+    console.log(`${fileCount} files created successfully!`);
+}
+
+// Use the function
+createFiles('.');  // This will create files in a 'data' directory
 
 const server = http.createServer((req, res) => {
   res.writeHead(200, { 'Content-Type': 'text/plain' });
