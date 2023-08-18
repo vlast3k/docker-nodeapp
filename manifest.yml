@@ -4,4 +4,3 @@ applications:
     disk-quota: 3G
     docker:
       image: vlast3k/docker-nodeapp
-      username: vlast3k
